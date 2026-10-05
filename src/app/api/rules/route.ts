@@ -11,7 +11,7 @@ export async function GET() {
     if (db) {
       const rule = await RuleModel.findOne({}).lean();
       if (rule) {
-        const doc = rule as Record<string, unknown>;
+        const doc = rule as unknown as Record<string, any>;
         const data = {
           ...DEFAULT_RULES,
           ...doc,
